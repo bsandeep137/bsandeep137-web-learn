@@ -6,7 +6,7 @@ app.get("/", function(req, res){
     res.send("Welcome to my Basic website");
 })
 app.get("/resume", function(req, res){
-    let reps=__dirname+"/resume.html"
+    let reps=__dirname+"/frontend/html/resume.html"
     res.sendFile(reps);
 })
  
