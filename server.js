@@ -1,7 +1,8 @@
+const { static } = require('express');
 const express = require('express');
  
 const app = express();
- 
+app.express(express.static(__dirname+"/frontend"))
 app.get("/", function(req, res){
     res.send("Welcome to my Basic website");
 })
