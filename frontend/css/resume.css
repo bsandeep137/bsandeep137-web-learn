@@ -1,4 +1,28 @@
-h1{
-    color: red;
-    font-size: larger;
+.leftcolumn{
+    float: left;
+    width: 30vw;
+    justify-content:center ;
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+p{
+    font-size: 4mm;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.rightcolumn{
+    width:62vw;
+    float: right;
+    justify-content:center ;
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-bottom: 10px;   
+}
+nav{
+    white-space: normal;
+    justify-content: right;
+}
+.percen{
+    background: lightseagreen;
+    text-align: center;
 }
