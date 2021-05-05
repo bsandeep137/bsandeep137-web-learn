@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color</title>
+    <link rel="stylesheet" href="/css/color.css">
+</head>
+<body>
+    <div class="box" id="box">
+        <p style="text-align: center;font-family: 'Courier New', Courier, monospace;"><span id=resvalue></span></p>
+    </div>
+    <ul style="list-style-type: none;">
+        <li>
+            <div style="text-align: center;">
+                <p>RED</p>
+                <input type="range" min=0 max=255 id="sliderRed" >
+                <p><span id="redvalue"></span></p>
+            </div>
+        </li>
+        <li>
+            <div style="text-align: center;">
+                <p>GREEN</p>
+                <input type="range" min=0 max=255 id="sliderGreen">
+                <p><span id="greenvalue"></span></p>
+            </div>
+        </li>
+        <li>
+            <div style="text-align: center;">
+                <p>BLUE</p>
+                <input type="range" min=0 max=255 id="sliderBlue">
+                <p><span id="bluevalue"></span></p>
+            </div>
+        </li>
+
+    </ul>
+    <script src="/js/color.js"></script>
+</body>
+</html>
