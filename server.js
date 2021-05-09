@@ -18,6 +18,10 @@ app.get("/color", function(req, res){
     let reps=__dirname+"/frontend/html/color.html"
     res.sendFile(reps);
 })
+app.get("/login", function(req, res){
+    let reps=__dirname+"/frontend/html/login.html"
+    res.sendFile(reps);
+})
  
 app.get("/register", function(req, res){
     let reps=__dirname+"/frontend/html/register.html"

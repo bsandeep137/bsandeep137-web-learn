@@ -1,0 +1,18 @@
+.box{
+    border:2px solid springgreen;
+    margin-top: 100px;
+    margin-left:26%;
+    padding-left: 10px;
+    padding-top: 15px;
+    height:10cm;
+    width:15cm;
+
+}
+.username,.pswrd{
+    width: 10cm;
+    height: .5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
