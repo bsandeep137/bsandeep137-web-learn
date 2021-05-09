@@ -1,13 +1,18 @@
 .box{
     border: 2px solid rosybrown;
     width: 15cm;
-    height: 20cm;
+    height: 18cm;
     padding-left: 10px;
     padding-top: 15px;
     margin-left: 26%;
-    margin-top: 100px;
+    margin-top: 25px;
     justify-content: center;
+    background-color: cornsilk;
 }
+body{
+    background-color: burlywood
+}
+
 .fname,.lname,.pswrd,.email,.cfrmpswrd{
     width: 10cm;
     height:.5cm;
@@ -15,7 +20,7 @@
     padding-left: 5px;
     padding-bottom: 5px;
     padding-right: 5px;
-
+    background-color: cornsilk;
 }
 .gender{
     margin-left: 10%;
@@ -23,6 +28,8 @@
 .register,.reset{
     width: 10cm;
     height:1cm;
+    border-radius: 38%;
+    background-color:burlywood;
 
 
 }
