@@ -22,6 +22,14 @@ app.get("/login", function(req, res){
     let reps=__dirname+"/frontend/html/login.html"
     res.sendFile(reps);
 })
+app.get("/chart", function(req, res){
+    let reps=__dirname+"/frontend/html/chart.html"
+    res.sendFile(reps);
+})
+app.get("/l", function(req, res){
+    let reps=__dirname+"/frontend/html/l.html"
+    res.sendFile(reps);
+})
  
 app.get("/register", function(req, res){
     let reps=__dirname+"/frontend/html/register.html"
