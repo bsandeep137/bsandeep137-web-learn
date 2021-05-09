@@ -7,10 +7,10 @@
     margin-left: 26%;
     margin-top: 25px;
     justify-content: center;
-    background-color: cornsilk;
+    background-color: white;
 }
 body{
-    background-color: burlywood
+    background-color: whitesmoke
 }
 
 .fname,.lname,.pswrd,.email,.cfrmpswrd{
@@ -20,7 +20,8 @@ body{
     padding-left: 5px;
     padding-bottom: 5px;
     padding-right: 5px;
-    background-color: cornsilk;
+    background-color: white;
+
 }
 .gender{
     margin-left: 10%;
@@ -29,7 +30,7 @@ body{
     width: 10cm;
     height:1cm;
     border-radius: 38%;
-    background-color:burlywood;
+
 
 
 }
