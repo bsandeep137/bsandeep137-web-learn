@@ -1,7 +1,7 @@
 .box{
     border: 2px solid rosybrown;
     width: 15cm;
-    height: 18cm;
+    height: 21cm;
     padding-left: 10px;
     padding-top: 15px;
     margin-left: 26%;
@@ -30,7 +30,9 @@ body{
     width: 10cm;
     height:1cm;
     border-radius: 38%;
-
-
-
+}
+i{
+    text-align: center;
+    font-size: 50px;
+    margin-left: 45%;
 }

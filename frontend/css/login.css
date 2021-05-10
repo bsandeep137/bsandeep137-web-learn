@@ -8,6 +8,11 @@
     width:15cm;
 
 }
+i{
+    text-align: center;
+    font-size: 50px;
+    margin-left: 45%;
+}
 .username,.pswrd{
     width: 10cm;
     height: .5;
