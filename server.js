@@ -26,8 +26,8 @@ app.get("/chart", function(req, res){
     let reps=__dirname+"/frontend/html/chart.html"
     res.sendFile(reps);
 })
-app.get("/l", function(req, res){
-    let reps=__dirname+"/frontend/html/l.html"
+app.get("/codeforcesvisualizer", function(req, res){
+    let reps=__dirname+"/frontend/html/codeforcesvisualizer.html"
     res.sendFile(reps);
 })
  

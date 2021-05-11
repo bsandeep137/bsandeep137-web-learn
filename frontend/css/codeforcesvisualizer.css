@@ -1,0 +1,33 @@
+.header{
+    border-bottom: 2px solid lightslategray;
+    padding-left: 15px;
+    padding-bottom: 2.5px;
+    padding-top: 1px;
+    padding-right: 15px;
+    height:1.4cm;
+    width:97%;
+}
+li{
+    padding-right: 15px;
+    font-size: larger;
+    color: rgb(98, 104, 110);
+
+}
+a{
+    text-decoration: none;
+    color:rgb(98, 104, 110)
+}
+a:hover{
+    text-decoration:underline;
+    color: lightslategray;
+}
+.inputbox{
+    display: flex;
+    justify-content: center;
+    padding-top: 14px;
+    border: .5px solid black;
+    width: 35%;
+    margin-left:30%;
+    height:3cm;
+    align-items: center;
+}
