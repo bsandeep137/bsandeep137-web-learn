@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+    font-size: 2cm;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 0px;
+}
+input{
+    width: 12cm;
+    margin-left: 35%;
+    height: 1.1cm;
+    padding-top: 2px;
+    padding-left: 15px;
+    padding-bottom: 2px;
+    font-size: larger;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

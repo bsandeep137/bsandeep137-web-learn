@@ -30,6 +30,10 @@ app.get("/codeforcesvisualizer", function(req, res){
     let reps=__dirname+"/frontend/html/codeforcesvisualizer.html"
     res.sendFile(reps);
 })
+app.get("/todo",function(req,res){
+    let path=__dirname+"/frontend/html/todo.html"
+    res.sendFile(path);
+})
  
 app.get("/register", function(req, res){
     let reps=__dirname+"/frontend/html/register.html"
