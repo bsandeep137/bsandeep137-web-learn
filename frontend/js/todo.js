@@ -7,8 +7,8 @@ if(window.localStorage.getItem("todos") == undefined){
      window.localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-var todosEX = window.localStorage.getItem("todos");
-var todos = JSON.parse(todosEX);
+var todos1 = window.localStorage.getItem("todos");
+var todos = JSON.parse(todos1);
 
 
 class item{
@@ -25,11 +25,6 @@ class item{
     	input.value = name;
     	input.classList.add('item_input');
 
-    	var edit = document.createElement('button');
-    	edit.classList.add('edit');
-    	edit.innerHTML = "EDIT";
-    	edit.addEventListener('click', () => this.edit(input, name));
-
     	var remove = document.createElement('button');
     	remove.classList.add('remove');
     	remove.innerHTML = "REMOVE";
@@ -38,21 +33,8 @@ class item{
     	container.appendChild(itemBox);
 
         itemBox.appendChild(input);
-        itemBox.appendChild(edit);
         itemBox.appendChild(remove);
 
-    }
-
-    edit(input, name){
-        if(input.disabled == true){
-           input.disabled = !input.disabled;
-        }
-    	else{
-            input.disabled = !input.disabled;
-            let indexof = todos.indexOf(name);
-            todos[indexof] = input.value;
-            window.localStorage.setItem("todos", JSON.stringify(todos));
-        }
     }
 
     remove(itemBox, name){
