@@ -59,7 +59,7 @@
                     var entry=`<div class="entry">
                                 <input type="checkbox" id="todo_status${item.id}" onchange="toggle(${item.id})" value="${item.completed}"></input>
                                 <input class="todo_entry" id="todo_entry${item.id}" value="${item.todo}" ></input>
-                                <button class="edit_task" onclick="edit(${item.id})">EDIT</i></button>
+                                <button class="edit_task" onclick="edit(${item.id})">SAVE</i></button>
                                 <button class="del_task" onclick="remove(${item.id})">REMOVE</i></button> 
                             </div>`
                     $(".container").append(entry);
@@ -68,7 +68,9 @@
 
                 }
 
+
             })
+            document.querySelector('.todo_entry').innerHTML="";
         })
         function edit(id){
             var task=document.querySelector(`#todo_entry${id}`).value
