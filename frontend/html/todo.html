@@ -5,19 +5,106 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/todo.css">
     <script src="https://kit.fontawesome.com/26d4a64054.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <h1 style="text-align: center;">Todo</h1> 
-    <div>
-        
-        <input type="text" class="input"  placeholder="What's need to be done?">
-        <button class="add"> <i class="fas fa-plus-circle"></i></button>
+    <div class="row1">
+        <input type="text" class="todo_entry"  placeholder="What's need to be done?">
+        <button class="add_task"> <i class="fas fa-plus-circle"></i></button>
     </div>
     <div class="container">
+        <!-- <div class="entry">
+            <input type="checkbox" onchange=""
+            <input type="text" class="todo_entry" >
+            <button class="edit_task" onclick="edit(${item.id})">EDIT</i></button>
+            <button class="del_task" onclick="remove(${item.id})">REMOVE</i></button> 
+        </div> -->
     </div>
 
-    <script src="/js/todo.js"></script>
+
+
+
+    
+    <script >
+        function disp(){
+            $('.container').empty();
+            $.get("http://localhost:3000/todo_list",function(data,status){
+                data.forEach(item => {
+                        var entry=`<div class="entry">
+                                    <input type="checkbox" id="todo_status${item.id}" onchange="toggle(${item.id})" value="${item.completed}"></input>
+                                    <input class="todo_entry" id="todo_entry${item.id}" value="${item.todo}" ></input>
+                                    <button class="edit_task" onclick="edit(${item.id})">SAVE</i></button>
+                                    <button class="del_task" onclick="remove(${item.id})">REMOVE</i></button> 
+                                </div>`
+                        $(".container").append(entry);
+                    
+                });
+            })
+        }
+        disp()
+        $(".add_task").click(function(){
+            console.log("entered into ad_task")
+            var task=document.querySelector('.todo_entry').value   
+            var data1={todo:task ,completed:false}
+            $.ajax({
+                type:`POST`,
+                url:`https://bsandeep137-web-learn.herokuapp.com/add_todo`,
+                data:data1,
+                success:function(data ,status, xhr){
+                    console.log("entered innto success")
+                    var item={todo:task ,completed:false ,id:JSON.parse(data).id}
+                    var entry=`<div class="entry">
+                                <input type="checkbox" id="todo_status${item.id}" onchange="toggle(${item.id})" value="${item.completed}"></input>
+                                <input class="todo_entry" id="todo_entry${item.id}" value="${item.todo}" ></input>
+                                <button class="edit_task" onclick="edit(${item.id})">EDIT</i></button>
+                                <button class="del_task" onclick="remove(${item.id})">REMOVE</i></button> 
+                            </div>`
+                    $(".container").append(entry);
+                    
+                    
+
+                }
+
+            })
+        })
+        function edit(id){
+            var task=document.querySelector(`#todo_entry${id}`).value
+            var todo_status=document.querySelector(`#todo_status${id}`).value
+            console.log(todo_status)
+            console.log(task,todo_status)
+            var data1={todo:task,completed:todo_status}
+            $.ajax({
+                type:`PUT`,
+                url:`https://bsandeep137-web-learn.herokuapp.com/${id}`,
+                data:data1,
+                success:function(data,status,xhr){
+                        console.log("PUT call initiated");
+
+
+                }
+            });
+
+
+        }
+        function remove(id){
+            console.log("reached remove")
+            $.ajax({
+                url:`https://bsandeep137-web-learn.herokuapp.com/${id}`,
+                type:"DELETE",
+                success:function(){
+                    
+
+                }
+            });
+            disp()
+
+        }
+
+        
+
+    </script>
 </body>
 </html>
