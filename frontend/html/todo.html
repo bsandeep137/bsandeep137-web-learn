@@ -78,7 +78,7 @@
             var data1={todo:task,completed:todo_status}
             $.ajax({
                 type:`PUT`,
-                url:`https://bsandeep137-web-learn.herokuapp.com/${id}`,
+                url:`https://bsandeep137-web-learn.herokuapp.com/get_todo/${id}`,
                 data:data1,
                 success:function(data,status,xhr){
                         console.log("PUT call initiated");
@@ -92,7 +92,7 @@
         function remove(id){
             console.log("reached remove")
             $.ajax({
-                url:`https://bsandeep137-web-learn.herokuapp.com/${id}`,
+                url:`https://bsandeep137-web-learn.herokuapp.com/remove_todo/${id}`,
                 type:"DELETE",
                 success:function(){
                     
