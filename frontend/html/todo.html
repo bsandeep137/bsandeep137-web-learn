@@ -100,10 +100,13 @@
             $.ajax({
                 url:`https://bsandeep137-web-learn.herokuapp.com/remove_todo/${id}`,
                 type:"DELETE",
+                success:function(){
+                    disp()
+                }
             });
             
         }
-        disp()
+        
     </script>
 </body>
 </html>
