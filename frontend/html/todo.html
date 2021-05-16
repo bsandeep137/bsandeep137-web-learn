@@ -63,6 +63,7 @@
                                 <button class="del_task" onclick="remove(${item.id})">REMOVE</i></button> 
                             </div>`
                     $(".container").append(entry);
+                    document.getElementsByClassName('.todo_entry').innerHTML="";
                     
                     
 
@@ -70,7 +71,7 @@
 
 
             })
-            document.getElementsByClassName('.todo_entry').innerHTML="";
+            
         })
         function edit(id){
             var task=document.querySelector(`#todo_entry${id}`).value
