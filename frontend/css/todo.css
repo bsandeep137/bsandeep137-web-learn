@@ -1,21 +1,108 @@
-  
-h1{
+ body{
+     background-color: whitesmoke;
+     margin: 0%;
+     background: url(/img/todo_background.png);
+    background-position-y: 3cm;
+    background-size: 100% 100vh;
+ } 
+ .header{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
     text-align: center;
+    height: 3cm;
+    background-color: black;
+    margin-bottom: 5px;
+    border-bottom-right-radius: .4cm;
+    border-bottom-left-radius: .4cm;
+ }
+h1{
     font-size: 2cm;
-    font-family: 'Times New Roman', Times, serif;
+    margin: 15px;
+    font-weight: 50;
+    font-family: 'Goblin One', cursive;;
     margin-top: 0px;
+    color: limegreen;
+}
+.input_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 15px;
+    margin: 15px;
 }
 .todo_entry{
-    width: 12cm;
-    height: 1.1cm;
+    height: 1cm;
+    width: 9cm;
+    border-radius: 1cm;
+    border:none;
+    outline:none;
+    font-size: larger;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(218, 223, 228);
     padding-top: 2px;
     padding-left: 15px;
     padding-bottom: 2px;
+}
+.add_task{
+    height: 1cm;
+    width: 1cm;
+    margin: 6px;
+    border-radius: .45cm;
+    background-color: limegreen;
+    border:none;
+    outline: none;
+    cursor:pointer;
+}
+.container{
+    display: block;
+    justify-content: center;
+    margin: auto;
+    width:12cm;
+    padding-left:15px ;
+    padding-right:15px ;
+    backdrop-filter: blur(7px);
+    
+    align-items: center;
+    text-align: center;
+}
+.entry{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom:solid limegreen;
+}
+.todo_no{
+    border: none;
+    outline: none;
+    width: 8cm;
+    background-color: none;
+    background: none;
+    color: black;
+    height: 1cm;
     font-size: larger;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-.entry,.row1{
-
-    margin-left: 35%;
-
+.edit_task{
+    border: none;
+    outline: none;
+    background: none;
+    color: black;
+    cursor: pointer;
+    font-size:.38cm;
+    font-weight: 400;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.del_task{
+    border: none;
+    outline: none;
+    background: none;
+    color: red;
+    cursor: pointer;
+    font-size:.38cm;
+    font-weight: 400;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

@@ -62,7 +62,7 @@ app.put("/get_todo/:id",function(req,res) {
     for( x of data){
         if (x.id==req.params.id){
             x.todo=req.body.todo;
-            x.completed=req.body.completed;
+
         }
 
     }

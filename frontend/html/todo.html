@@ -8,20 +8,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/todo.css">
     <script src="https://kit.fontawesome.com/26d4a64054.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Goblin+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 style="text-align: center;">Todo</h1> 
-    <div class="row1">
-        <input type="text" class="todo_entry"  placeholder="What's need to be done?">
-        <button class="add_task"> <i class="fas fa-plus-circle"></i></button>
+    <div class='header'>
+        <h1 style="text-align: center;">Todos</h1> 
     </div>
-    <div class="container">
-        <!-- <div class="entry">
-            <input type="checkbox" onchange=""
-            <input type="text" class="todo_entry" >
-            <button class="edit_task" onclick="edit(${item.id})">EDIT</i></button>
-            <button class="del_task" onclick="remove(${item.id})">REMOVE</i></button> 
-        </div> -->
+    <div class="body1">
+        <div class="input_div">
+            <input type="text" class="todo_entry"  placeholder="What's need to be done?">
+            <button class="add_task"> <i class="fas fa-plus-circle" ></i></button>
+        </div>
+        <div class="container">
+            <!-- <div class="entry">
+                <input type="checkbox" onchange=""
+                <input type="text" class="todo_entry" >
+                <button class="edit_task" onclick="edit(${item.id})">EDIT</i></button>
+                <button class="del_task" onclick="remove(${item.id})">REMOVE</i></button> 
+            </div> -->
+        </div>
     </div>
 
 
@@ -31,13 +37,12 @@
     <script >
         function disp(){
             $('.container').empty();
-            $.get("https://bsandeep137-web-learn.herokuapp.com/todo_list",function(data,status){
+            $.get("https://bsandeep137-web-learn.herokuapp.com/todo_list",function(data){
                 data.forEach(item => {
                         var entry=`<div class="entry">
-                                    <input type="checkbox" id="todo_status${item.id}" onchange="toggle(${item.id})" value="${item.completed}"></input>
-                                    <input class="todo_entry" id="todo_entry${item.id}" value="${item.todo}" ></input>
-                                    <button class="edit_task" onclick="edit(${item.id})">SAVE</i></button>
-                                    <button class="del_task" onclick="remove(${item.id})">REMOVE</i></button> 
+                                    <input class="todo_no" id="todo_no${item.id}" value="${item.todo}" disabled ></input>
+                                    <button class="edit_task" id="edit_task${item.id}" onclick="edit(${item.id})"><i class="fas fa-edit"></i> EDIT</i></button>
+                                    <button class="del_task" onclick="remove(${item.id})"><i class="fas fa-trash-alt"></i> REMOVE</i></button> 
                                 </div>`
                         $(".container").append(entry);
                     
@@ -46,65 +51,58 @@
         }
         disp()
         $(".add_task").click(function(){
-            console.log("entered into ad_task")
+            var ip=document.querySelector('.todo_entry')
             var task=document.querySelector('.todo_entry').value   
-            var data1={todo:task ,completed:false}
-            $.ajax({
-                type:`POST`,
-                url:`https://bsandeep137-web-learn.herokuapp.com/add_todo`,
-                data:data1,
-                success:function(data ,status, xhr){
-                    console.log("entered innto success")
-                    var item={todo:task ,completed:false ,id:JSON.parse(data).id}
-                    var entry=`<div class="entry">
-                                <input type="checkbox" id="todo_status${item.id}" onchange="toggle(${item.id})" value="${item.completed}"></input>
-                                <input class="todo_entry" id="todo_entry${item.id}" value="${item.todo}" ></input>
-                                <button class="edit_task" onclick="edit(${item.id})">SAVE</i></button>
-                                <button class="del_task" onclick="remove(${item.id})">REMOVE</i></button> 
-                            </div>`
-                    $(".container").append(entry);
-                    task.value=""
-                }
-
-
-            })
+            var data1={todo:task}
+            if (task.trim()!=""){
+                $.ajax({
+                    type:`POST`,
+                    url:`https://bsandeep137-web-learn.herokuapp.com/add_todo`,
+                    data:data1,
+                    success:function(data ,status, xhr){
+                        console.log("entered innto success")
+                        var item={todo:task ,id:JSON.parse(data).id}
+                        var entry=`<div class="entry">
+                                    <input class="todo_no" id="todo_no${item.id}" value="${item.todo}" disabled></input>
+                                    <button class="edit_task" id="edit_task${item.id}" onclick="edit(${item.id})"><i class="fas fa-edit"></i> EDIT</i></button>
+                                    <button class="del_task" onclick="remove(${item.id})"><i class="fas fa-trash-alt"></i> REMOVE</i></button> 
+                                </div>`
+                        $(".container").append(entry);
+                    }
+                }) 
+            }
+            ip.value=""
             
         })
         function edit(id){
-            var task=document.querySelector(`#todo_entry${id}`).value
-            var todo_status=document.querySelector(`#todo_status${id}`).value
-            console.log(todo_status)
-            console.log(task,todo_status)
-            var data1={todo:task,completed:todo_status}
-            $.ajax({
-                type:`PUT`,
-                url:`https://bsandeep137-web-learn.herokuapp.com/get_todo/${id}`,
-                data:data1,
-                success:function(data,status,xhr){
-                        console.log("PUT call initiated");
-
-
-                }
-            });
-
-
+            var status=document.querySelector(`#todo_no${id}`)
+            status.disabled=!status.disabled;
+            var save_button=document.getElementById(`edit_task${id}`)
+            if (status.disabled==false) {
+                save_button.innerHTML='<i class="fas fa-save"></i> SAVE'
+            }
+            else{
+                save_button.innerHTML='<i class="fas fa-edit"></i> EDIT'
+                var task=document.querySelector(`#todo_no${id}`).value
+                var data1={todo:task}
+                $.ajax({
+                    type:`PUT`,
+                    url:`https://bsandeep137-web-learn.herokuapp.com/get_todo/${id}`,
+                    data:data1,
+                    success:function(data,status,xhr){
+                            console.log("updation completed successfully");
+                    }
+                }); 
+            } 
         }
         function remove(id){
             console.log("reached remove")
             $.ajax({
                 url:`https://bsandeep137-web-learn.herokuapp.com/remove_todo/${id}`,
                 type:"DELETE",
-                success:function(){
-                    
-
-                }
             });
             disp()
-
         }
-
-        
-
     </script>
 </body>
 </html>
