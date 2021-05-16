@@ -48,7 +48,6 @@
         $(".add_task").click(function(){
             console.log("entered into ad_task")
             var task=document.querySelector('.todo_entry').value   
-            document.getElementsByClassName('.todo_entry').innerHTML="";
             var data1={todo:task ,completed:false}
             $.ajax({
                 type:`POST`,
@@ -64,6 +63,7 @@
                                 <button class="del_task" onclick="remove(${item.id})">REMOVE</i></button> 
                             </div>`
                     $(".container").append(entry);
+                    task.value=""
                 }
 
 
