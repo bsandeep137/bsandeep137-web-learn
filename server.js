@@ -8,7 +8,7 @@ app.use(express.static(__dirname+"/frontend"));
 
 const mongoose=require('mongoose');
 var password=process.env.Mongo_Atlas_Password;
-var connectionString="mongodb+srv://sandeep:"+password+"@cluster0.kxroj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+var connectionString="mongodb+srv://sandeep:"+"Sandeep07"+"@cluster0.kxroj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 mongoose.connect(connectionString,{useNewUrlParser: true});
 mongoose.connection.on('connected',()=> {
     console.log("Database Connected")
