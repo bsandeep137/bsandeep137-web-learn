@@ -37,7 +37,7 @@
     <script >
         function disp(){
             $('.container').empty();
-            $.get("https://bsandeep137-web-learn.herokuapp.com//todo/todo_list",function(data){
+            $.get("https://bsandeep137-web-learn.herokuapp.com/todo/todo_list",function(data){
                 data.forEach(item => {
                         var entry=`<div class="entry">
                                     <input class="todo_no" id="todo_no${item._id}" value="${item.todo}" disabled ></input>
@@ -57,7 +57,7 @@
             if (task.trim()!=""){
                 $.ajax({
                     type:`POST`,
-                    url:`https://bsandeep137-web-learn.herokuapp.com//todo/add_todo`,
+                    url:`https://bsandeep137-web-learn.herokuapp.com/todo/add_todo`,
                     data:data1,
                     success:function(data ,status, xhr){
                         console.log("entered innto post")
@@ -89,7 +89,7 @@
                 var data1={todo:task}
                 $.ajax({
                     type:`PUT`,
-                    url:`https://bsandeep137-web-learn.herokuapp.com//todo/get_todo/${id}`,
+                    url:`https://bsandeep137-web-learn.herokuapp.com/todo/get_todo/${id}`,
                     data:data1,
                     success:function(data,status,xhr){
                             console.log("updation completed successfully");
@@ -100,7 +100,7 @@
         function remove(id){
             console.log("reached remove",id)
             $.ajax({
-                url:`https://bsandeep137-web-learn.herokuapp.com//todo/remove_todo/${id}`,
+                url:`https://bsandeep137-web-learn.herokuapp.com/todo/remove_todo/${id}`,
                 type:"DELETE",
                 success:function(){
                     disp()
