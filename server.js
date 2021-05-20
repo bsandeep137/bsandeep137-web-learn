@@ -1,15 +1,14 @@
 const { static } = require('express');
 const express = require('express');
 const app = express();
-const config=require('./backend/config/config.js')
 app.use(express.static(__dirname+"/frontend"));
 
 
 
 
 const mongoose=require('mongoose');
-// var password=process.env.Mongo_Atlas_Password;
-// var connectionString="mongodb+srv://sandeep:"+"Sandeep07"+"@cluster0.kxroj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+var password=process.env.Mongo_Atlas_Password;
+var connectionString="mongodb+srv://sandeep:"+"Sandeep"+"@cluster0.kxroj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 mongoose.connect(connectionString,{useNewUrlParser: true});
 mongoose.connection.on('connected',()=> {
     console.log("Database Connected")
