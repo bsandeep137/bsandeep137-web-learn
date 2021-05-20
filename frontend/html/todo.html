@@ -37,12 +37,12 @@
     <script >
         function disp(){
             $('.container').empty();
-            $.get("https://bsandeep137-web-learn.herokuapp.com/todo_list",function(data){
+            $.get("https://bsandeep137-web-learn.herokuapp.com/todo/todo_list",function(data){
                 data.forEach(item => {
                         var entry=`<div class="entry">
-                                    <input class="todo_no" id="todo_no${item.id}" value="${item.todo}" disabled ></input>
-                                    <button class="edit_task" id="edit_task${item.id}" onclick="edit(${item.id})"><i class="fas fa-edit"></i> EDIT</i></button>
-                                    <button class="del_task" onclick="remove(${item.id})"><i class="fas fa-trash-alt"></i> REMOVE</i></button> 
+                                    <input class="todo_no" id="todo_no${item._id}" value="${item.todo}" disabled ></input>
+                                    <button class="edit_task" id="edit_task${item._id}" onclick="edit(${item._id})"><i class="fas fa-edit"></i> EDIT</i></button>
+                                    <button class="del_task" onclick="remove(${item._id})"><i class="fas fa-trash-alt"></i> REMOVE</i></button> 
                                 </div>`
                         $(".container").append(entry);
                     
@@ -57,10 +57,10 @@
             if (task.trim()!=""){
                 $.ajax({
                     type:`POST`,
-                    url:`https://bsandeep137-web-learn.herokuapp.com/add_todo`,
+                    url:`https://bsandeep137-web-learn.herokuapp.com/todo/add_todo`,
                     data:data1,
                     success:function(data ,status, xhr){
-                        console.log("entered innto success")
+                        console.log("entered innto post")
                         var item={todo:task ,id:JSON.parse(data).id}
                         var entry=`<div class="entry">
                                     <input class="todo_no" id="todo_no${item.id}" value="${item.todo}" disabled></input>
@@ -87,7 +87,7 @@
                 var data1={todo:task}
                 $.ajax({
                     type:`PUT`,
-                    url:`https://bsandeep137-web-learn.herokuapp.com/get_todo/${id}`,
+                    url:`https://bsandeep137-web-learn.herokuapp.com/todo/get_todo/${id}`,
                     data:data1,
                     success:function(data,status,xhr){
                             console.log("updation completed successfully");
@@ -98,7 +98,7 @@
         function remove(id){
             console.log("reached remove")
             $.ajax({
-                url:`https://bsandeep137-web-learn.herokuapp.com/remove_todo/${id}`,
+                url:`https://bsandeep137-web-learn.herokuapp.com/todo/remove_todo/${id}`,
                 type:"DELETE",
                 success:function(){
                     disp()
