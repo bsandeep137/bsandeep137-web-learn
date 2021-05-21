@@ -22,7 +22,10 @@ const todoRouter=require('./todo_routes')
 app.use("/todo",todoRouter);
 
 
-
+app.get("/tambola", function(req, res){
+    let reps=__dirname+"/frontend/html/tambola.html"
+    res.sendFile(reps);
+})
 app.get("/", function(req, res){
     res.send("Welcome to my Basic website");
 })
